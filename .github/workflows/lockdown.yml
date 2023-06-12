@@ -1,0 +1,17 @@
+name: 'Auto-lock issues'
+
+on:
+  issues:
+    types: opened
+
+permissions:
+  issues: write
+
+jobs:
+  action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dessant/repo-lockdown@v3
+        with:
+          process-only: 'issues'
+          close-issue: false
